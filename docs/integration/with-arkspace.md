@@ -2,13 +2,13 @@
 
 **Version**: 0.1.0  
 **Status**: Draft  
-**Last Updated**: April 2026
+**Last Updated**: 2026-04-21
 
 ---
 
 ## Overview
 
-This document defines the integration between **thermodynamic-core** (Substrate Layer) and **arkspace-core** (Infrastructure Layer). Thermodynamic computing is the proposed physical payload technology for the Exocortex Constellation satellites — the hardware paradigm that makes a 100M-neuron satellite node at 50–200W conceivable.
+This document defines the integration between **thermodynamic-core** (Substrate Layer) and **arkspace-core** (Infrastructure Layer). Thermodynamic computing is the proposed physical payload technology for the Exocortex Constellation satellites. It is the hardware paradigm that makes a 100M-neuron satellite node at 50–200W conceivable.
 
 ---
 
@@ -21,9 +21,9 @@ From `arkspace-core` specifications:
 - Power budget: 50–200W per payload
 - Current neuromorphic reference: Intel Loihi 2 at ~1M neurons / ~1W (terrestrial, unverified for space)
 
-Scaling from Loihi 2 to 100M neurons at the same power density would require ~100W — at the boundary of the stated budget, before accounting for radiation-hardening overhead, thermal management in LEO, and the ~4× power scaling gap that space environments introduce.
+Scaling from Loihi 2 to 100M neurons at the same power density would require ~100W, at the boundary of the stated budget, before accounting for radiation-hardening overhead, thermal management in LEO, and the ~4× power scaling gap that space environments introduce.
 
-Thermodynamic computing's $10^3$–$10^7 \times$ energy efficiency over digital accelerators is the principal reason why TC is specifically relevant to this orbital application. It is the physical paradigm that could keep the 100M-neuron payload within a viable power envelope.
+Thermodynamic computing's $10^3$–$10^7 \times$ energy efficiency over digital accelerators is the principal reason TC is relevant to this orbital application. It could keep the 100M-neuron payload within a viable power envelope.
 
 ### 1.2 TC vs. Loihi-Class in LEO
 
@@ -57,7 +57,7 @@ Thermodynamic computing's $10^3$–$10^7 \times$ energy efficiency over digital 
 │  │  └─────────┬──────────┘                                       │ │
 │  │            │                                                   │ │
 │  │  ┌─────────▼──────────┐                                       │ │
-│  │  │  Parameter Memory  │  (J_ij, b_i — programmed at launch    │ │
+│  │  │  Parameter Memory  │  (J_ij, b_i, programmed at launch     │ │
 │  │  │  (non-volatile)    │   or via uplink update)               │ │
 │  │  └────────────────────┘                                       │ │
 │  └─────────────────────────────────────────────────────────────┘ │
@@ -83,16 +83,16 @@ LEO orbital environment imposes radiation stress that is a critical technology g
 
 | Threat | Description | Impact on TC Hardware |
 |---|---|---|
-| **Single-Event Upsets (SEU)** | Ionizing particle flips a bit | Flips p-bit state — potentially tolerable (stochastic anyway) |
+| **Single-Event Upsets (SEU)** | Ionizing particle flips a bit | Flips p-bit state, potentially tolerable (substrate is stochastic anyway) |
 | **Total Ionizing Dose (TID)** | Accumulated radiation shifts transistor thresholds | Alters subthreshold CMOS behavior → calibration drift |
 | **Displacement Damage** | Lattice defects from neutrons | Degrades carrier mobility → changes $\mu$ in Langevin |
 | **Thermal cycling** | -40°C to +80°C per orbit | Changes $k_B T$ → changes fluctuation amplitude → $\Delta$ shift in MTJ |
 
 ### 3.1 TC-Specific Advantage for SEU
 
-Unlike deterministic logic where a single bit flip is a hard error, thermodynamic hardware is inherently probabilistic. A random state perturbation from cosmic radiation is simply another thermal fluctuation — the system re-equilibrates. This suggests TC hardware may have **intrinsic SEU tolerance** that deterministic neuromorphic hardware lacks.
+In deterministic logic a single bit flip is a hard error. Thermodynamic hardware is probabilistic by construction. A random state perturbation from cosmic radiation is another thermal fluctuation and the system re-equilibrates. TC hardware therefore may have **intrinsic SEU tolerance** that deterministic neuromorphic hardware lacks.
 
-> **This is speculative** — formal SEU tolerance analysis for TC hardware in LEO is a required research task.
+> **Speculative**. Formal SEU tolerance analysis for TC hardware in LEO is a required research task.
 
 ### 3.2 TID and Thermal Mitigation
 

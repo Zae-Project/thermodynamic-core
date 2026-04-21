@@ -2,13 +2,13 @@
 
 **Version**: 0.1.0  
 **Status**: Draft  
-**Last Updated**: April 2026
+**Last Updated**: 2026-04-21
 
 ---
 
 ## Overview
 
-One of the most significant barriers to brain-scale thermodynamic computing is the **interconnect wall**: physical substrates are locally connected, but biological brains and modern AI architectures require complex non-local connectivity. This document covers the two primary scaling barriers and their solutions.
+A primary barrier to brain scale thermodynamic computing is the **interconnect wall**. Physical substrates are locally connected, but biological brains and modern AI architectures require non-local connectivity. This document covers the two primary scaling barriers and their solutions.
 
 ---
 
@@ -16,11 +16,11 @@ One of the most significant barriers to brain-scale thermodynamic computing is t
 
 ### 1.1 The Problem
 
-In a brain-scale diffusion or U-Net model, skip connections carry information from encoder layers directly to decoder layers, bypassing intermediate processing. In hardware:
+In a brain scale diffusion or U-Net model, skip connections carry information from encoder layers directly to decoder layers, bypassing intermediate processing. In hardware:
 
-- A locally connected grid implementing a $D$-dimensional feature space requires $O(D^2)$ wiring for full skip connections
-- For brain-scale systems with $D \gtrsim 10^4$, this becomes intractable
-- Example: a 1,000-dimensional feature space requires ~1M wires *per skip connection*
+- A locally connected grid implementing a $D$-dimensional feature space requires $O(D^2)$ wiring for full skip connections.
+- For brain scale systems with $D \gtrsim 10^4$, this becomes intractable.
+- Example. a 1,000-dimensional feature space requires ~1M wires *per skip connection*.
 
 ### 1.2 Hierarchical Bilinear Skip Coupling (HBSC)
 
@@ -51,7 +51,7 @@ Empirical results on trained U-Nets (Whitelam & Casert 2026):
 | Theoretical net energy saving vs. GPU inference | $\sim 10^7 \times$ |
 | Hardware implementation | Analog coupling bus (e.g., memristor conductances) |
 
-At $k=16$, HBSC reduces wiring complexity from $O(D^2)$ to $O(Dk) = O(16D)$ while maintaining >99% functional fidelity — a practical path to brain-scale physical connectivity.
+At $k=16$, HBSC reduces wiring complexity from $O(D^2)$ to $O(Dk) = O(16D)$ while maintaining >99% functional fidelity. This is a practical path to brain scale physical connectivity.
 
 ---
 
@@ -59,9 +59,9 @@ At $k=16$, HBSC reduces wiring complexity from $O(D^2)$ to $O(Dk) = O(16D)$ whil
 
 ### 2.1 The Problem: Eigenvalue Concentration
 
-In a purely Langevin substrate with fixed coupling constants, the signal provided to distinguish one specific input from another can become too weak relative to thermal noise — an effect known as **eigenvalue concentration**.
+In a purely Langevin substrate with fixed coupling constants, the signal that distinguishes one input from another can become too weak relative to thermal noise. This is **eigenvalue concentration**.
 
-In production-scale diffusion models, this signal deficit can be as high as **2,600×**. Without correction, the substrate equilibrates to roughly the same distribution regardless of the input: it has lost the ability to condition on input data.
+In production-scale diffusion models, the signal deficit reaches **2,600×**. Without correction, the substrate equilibrates to roughly the same distribution regardless of the input. The substrate loses the ability to condition on input data.
 
 ### 2.2 The Solution: Minimal Digital Conditioning Interface
 
@@ -85,9 +85,9 @@ Total: a few thousand parameters guiding a million-parameter analog core.
 ### 2.3 Architecture Implication for Zae
 
 For orbital deployment in arkspace-core satellites:
-- The analog Langevin substrate (dominant: millions of p-bit cells) performs the heavy inference computation at near-zero marginal energy
-- The digital conditioning interface (tiny: ~0.1% of parameters) runs on a small conventional processor and provides per-input anchoring
-- This eliminates the need for a full digital replica of the model — only the bias computation is digital
+- The analog Langevin substrate (millions of p-bit cells) performs the bulk inference computation at near-zero marginal energy.
+- The digital conditioning interface (~0.1% of parameters) runs on a small conventional processor and provides per-input anchoring.
+- This eliminates the need for a full digital replica of the model. Only the bias computation is digital.
 
 ---
 
@@ -97,12 +97,12 @@ For orbital deployment in arkspace-core satellites:
 |---|---|---|---|---|
 | Proof-of-concept | ~1,000 | Local grid | Standard Boltzmann machine | Demonstrated |
 | Mid-scale | ~100K | HBSC rank-16 | SVD-reduced skip couplings | Research |
-| Brain-scale | ~100M | HBSC + hybrid conditioning | Full hybrid architecture | Speculative (TRL 2) |
+| Brain scale | ~100M | HBSC + hybrid conditioning | Full hybrid architecture | Speculative (TRL 2) |
 
 ---
 
 ## References
 
 See [`../../reference/bibliography.md`](../../reference/bibliography.md):
-- Whitelam & Casert (Nature Communications 2026) — HBSC — arXiv:2604.14332
-- Whitelam (Molecular Foundry / Nat. Comm. 17:1189, 2026) — Non-linear TC mimicking neural nets
+- Whitelam & Casert (Nature Communications 2026). HBSC. arXiv:2604.14332.
+- Whitelam (Molecular Foundry / Nat. Comm. 17:1189, 2026). Non-linear TC mimicking neural nets.

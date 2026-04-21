@@ -2,13 +2,13 @@
 
 **Version**: 0.1.0  
 **Status**: Draft  
-**Last Updated**: April 2026
+**Last Updated**: 2026-04-21
 
 ---
 
 ## Overview
 
-Thermodynamic computing is grounded in non-equilibrium statistical mechanics and the theory of stochastic differential equations. Rather than enforcing deterministic logic states by suppressing thermal noise, thermodynamic computers *exploit* thermal fluctuations as a computational resource. The key insight is that many machine learning primitives — sampling, relaxation, and optimization — are formally identical to the natural dynamics of physical systems in contact with a thermal bath.
+Thermodynamic computing is grounded in non-equilibrium statistical mechanics and the theory of stochastic differential equations. A thermodynamic computer exploits thermal fluctuations as a computational resource instead of suppressing them. Several machine learning primitives (sampling, relaxation, optimization) are formally identical to the natural dynamics of physical systems in contact with a thermal bath.
 
 ---
 
@@ -35,7 +35,7 @@ At thermal equilibrium, the stationary distribution of the system is the **Boltz
 
 $$\rho(x) \propto e^{-V_\theta(x) / k_B T} = e^{-\beta V_\theta(x)}$$
 
-where $\beta = (k_B T)^{-1}$. This is the key: *programming $V_\theta$ is equivalent to programming the target probability distribution*. The hardware samples from it automatically by relaxing toward equilibrium.
+where $\beta = (k_B T)^{-1}$. Programming $V_\theta$ is equivalent to programming the target probability distribution. The hardware samples from it automatically by relaxing toward equilibrium.
 
 ### 1.3 Identity with Machine Learning Primitives
 
@@ -74,7 +74,7 @@ Digital CMOS operates $10^6$–$10^9 \times$ above this bound due to timing cont
 
 ### 2.3 Implications for Brain-Scale Emulation
 
-The human brain consumes ~20 W for ~86 billion neurons. A brain-scale synthetic substrate at $k_B T$ efficiency operating at $10^{-21}$ J/operation would require — in principle — negligible power compared to its digital equivalent. In practice, estimates for production-scale thermodynamic diffusion inference suggest energy savings of $\sim 10^7 \times$ over GPU-based execution (Jelinčič et al., arXiv:2510.23972).
+The human brain consumes ~20 W for ~86 billion neurons. A brain scale synthetic substrate at $k_B T$ efficiency operating at $10^{-21}$ J/operation would, in principle, require negligible power compared to its digital equivalent. In practice, estimates for production-scale thermodynamic diffusion inference suggest energy savings of $\sim 10^7 \times$ over GPU execution (Jelinčič et al., arXiv:2510.23972).
 
 ---
 
@@ -94,12 +94,12 @@ AI compute demand has been doubling approximately every 100 days. This creates a
 
 ### 4.1 Open-System Thermodynamics
 
-Real TC hardware operates out of equilibrium — driven by input signals and dissipating energy to perform useful computation. The relevant theoretical framework is **stochastic thermodynamics** (Seifert, 2012), which extends classical thermodynamics to individual trajectories of small systems.
+Real TC hardware operates out of equilibrium, driven by input signals and dissipating energy to perform useful computation. The relevant theoretical framework is **stochastic thermodynamics** (Seifert, 2012), which extends classical thermodynamics to individual trajectories of small systems.
 
 Key results relevant to TC:
-- **Jarzynski equality**: $\langle e^{-\beta W} \rangle = e^{-\beta \Delta F}$ — relating non-equilibrium work to free energy differences
-- **Crooks fluctuation theorem**: Ratio of forward/reverse path probabilities relates to entropy production
-- **Second-law inequality**: $\langle W_{\text{diss}} \rangle \geq \Delta F$ — sets the lower bound on computational cost
+- **Jarzynski equality**: $\langle e^{-\beta W} \rangle = e^{-\beta \Delta F}$, relating non-equilibrium work to free energy differences.
+- **Crooks fluctuation theorem**: ratio of forward/reverse path probabilities relates to entropy production.
+- **Second-law inequality**: $\langle W_{\text{diss}} \rangle \geq \Delta F$, lower bound on computational cost.
 
 ### 4.2 Implications for Training
 
@@ -110,7 +110,7 @@ The Onsager-Machlup functional (see [`../algorithms/langevin-training.md`](../al
 ## References
 
 See [`../../reference/bibliography.md`](../../reference/bibliography.md) for full citations. Key foundational works:
-- Conte, Hylton et al. (2019) — CCC Workshop Report — arXiv:1911.01968
-- Hylton (2020) — *Thermodynamic Computing* (River Publishers)
-- Whitelam (PNAS 2026) — Training TC by Gradient Descent
-- Aifer et al. (2024) — Thermodynamic Linear Algebra — npj Unconventional Computing 1:13
+- Conte, Hylton et al. (2019). CCC Workshop Report. arXiv:1911.01968
+- Hylton (2020). *Thermodynamic Computing* (River Publishers).
+- Whitelam (PNAS 2026). Training TC by Gradient Descent.
+- Aifer et al. (2024). Thermodynamic Linear Algebra. *npj Unconventional Computing* 1:13.

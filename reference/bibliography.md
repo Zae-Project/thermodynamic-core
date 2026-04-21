@@ -1,7 +1,7 @@
-# Thermodynamic Computing — Bibliography
+# Thermodynamic Computing. Bibliography
 
 **Version**: 1.0  
-**Last Updated**: April 2026  
+**Last Updated**: 2026-04-21  
 **Purpose**: Primary sources for thermodynamic-core research
 
 All sources are organized by research cluster. For the unified Zae Project bibliography (including consciousness, BCI, neuromorphic, WBE, and satellite domains), see [zae-docs/reference/bibliography.md](https://github.com/Zae-Project/zae-docs/blob/main/reference/bibliography.md).
@@ -11,11 +11,11 @@ All sources are organized by research cluster. For the unified Zae Project bibli
 ## 1. Foundational Theory & Manifesto
 
 ### Tom Conte, Todd Hylton et al. (2019)
-- **Title**: *Thermodynamic Computing* — CCC Workshop Report
+- **Title**: *Thermodynamic Computing*. CCC Workshop Report.
 - **Source**: arXiv:1911.01968
 - **Authors**: Tom Conte, Erik DeBenedictis, Natesh Ganesh, Todd Hylton, John Paul Strachan, R. Stanley Williams, Alexander Alemi, Peter Baldi, et al.
 - **Key Contributions**: Defines thermodynamic computing as a field; manifesto for treating thermal noise as a computational resource; energy bounds and hardware roadmap
-- **Relevance to Zae**: Foundational framework; establishes the $k_B T$ lower bound argument for brain-scale efficiency
+- **Relevance to Zae**: foundational framework, establishes the $k_B T$ lower bound argument for brain scale efficiency.
 - **Access**: [arXiv:1911.01968](https://arxiv.org/abs/1911.01968)
 
 ### Todd Hylton (2020)
@@ -37,17 +37,17 @@ All sources are organized by research cluster. For the unified Zae Project bibli
 - **Relevance to Zae**: Primary hardware reference for the Substrate pillar; foundation for arkspace-core TC payload design
 - **Access**: [arXiv:2510.23972](https://arxiv.org/abs/2510.23972)
 
-### Extropic AI (2025) — "Thermodynamic Computing: From Zero to One"
+### Extropic AI (2025). "Thermodynamic Computing: From Zero to One"
 - **Type**: Technical blog / announcement
 - **Key Contributions**: Conceptual transition from digital to stochastic substrate; energy-based sampling paradigm
 - **Access**: [extropic.ai/writing/thermodynamic-computing-from-zero-to-one](https://extropic.ai/writing/thermodynamic-computing-from-zero-to-one)
 
-### Extropic AI (2025) — "TSU 101: An Entirely New Type of Computing Hardware"
+### Extropic AI (2025). "TSU 101: An Entirely New Type of Computing Hardware"
 - **Type**: Technical explainer
 - **Key Contributions**: Breakdown of the p-bit, sampling cells, on-chip interconnects, and the TSU ISA
 - **Access**: [extropic.ai/writing/tsu-101-an-entirely-new-type-of-computing-hardware](https://extropic.ai/writing/tsu-101-an-entirely-new-type-of-computing-hardware)
 
-### Extropic AI (2025) — "Inside X0 and XTR-0"
+### Extropic AI (2025). "Inside X0 and XTR-0"
 - **Type**: Hardware whitepaper
 - **Key Contributions**: Details on the X0 prototype and XTR-0 development platform; interface between TSU and conventional processors
 - **Access**: [extropic.ai/writing/inside-x0-and-xtr-0](https://extropic.ai/writing/inside-x0-and-xtr-0)
@@ -66,15 +66,15 @@ All sources are organized by research cluster. For the unified Zae Project bibli
 - **Journal**: PNAS (Proceedings of the National Academy of Sciences)
 - **DOI**: [10.1073/pnas.2528413123](https://www.pnas.org/doi/10.1073/pnas.2528413123)
 - **Institution**: Molecular Foundry, Lawrence Berkeley National Laboratory
-- **Key Contributions**: First demonstration that gradient descent (via the Onsager-Machlup functional) is viable for training TC hardware parameters; dramatically faster convergence than prior genetic-algorithm approaches; MNIST validation on a physical oscillator substrate
-- **Relevance to Zae**: Core training method for SNN-to-TC parameter transfer; Phase 2 implementation target
+- **Key Contributions**: first demonstration that gradient descent (via the Onsager-Machlup functional) is viable for training TC hardware parameters; orders of magnitude faster convergence than prior genetic-algorithm approaches; MNIST validation on a physical oscillator substrate.
+- **Relevance to Zae**: core training method for SNN-to-TC parameter transfer, Phase 2 implementation target.
 
 ### Stephen Whitelam & Corneel Casert (2026)
 - **Title**: *Thermodynamic Diffusion Inference with Minimal Digital Conditioning*
 - **Journal**: Nature Communications
 - **Source**: arXiv:2604.14332
-- **Key Contributions**: Hierarchical Bilinear Skip Coupling (HBSC) — rank-$k$ SVD-based non-local interconnects; minimal digital conditioning interface (<0.1% of model parameters); $10^7\times$ theoretical energy saving over GPU inference; rank-16 decoder cosine similarity 0.9906 vs. digital oracle
-- **Relevance to Zae**: Primary reference for HBSC and hybrid conditioning — both are core to brain-scale TC design
+- **Key Contributions**: Hierarchical Bilinear Skip Coupling (HBSC), rank-$k$ SVD-based non-local interconnects; minimal digital conditioning interface (<0.1% of model parameters); $10^7\times$ theoretical energy saving over GPU inference; rank-16 decoder cosine similarity 0.9906 vs. digital oracle.
+- **Relevance to Zae**: primary reference for HBSC and hybrid conditioning. Both are core to brain scale TC design.
 - **Access**: [arXiv:2604.14332](https://arxiv.org/abs/2604.14332)
 
 ### Stephen Whitelam (2026)
@@ -96,7 +96,7 @@ All sources are organized by research cluster. For the unified Zae Project bibli
 - **Key Contributions**: Implementation of VCMA-MTJ spintronic p-bits in a neuromorphic architecture; SqueezeNet on CIFAR-10 achieving 72.49% accuracy; energy-efficient spintronic-CMOS co-integration
 - **Relevance to Zae**: Demonstrates p-bit-based neural classification; hardware baseline for spintronic TC
 
-### (Authors TBC) — Nature Electronics (2025)
+### (Authors TBC). Nature Electronics (2025)
 - **Title**: *A Neuristor based on Single Transistor Latch (STL) in CMOS*
 - **Journal**: Nature Electronics / ACS Nano
 - **Access**: [pubs.acs.org/doi/10.1021/acsnano.5c15076](https://pubs.acs.org/doi/10.1021/acsnano.5c15076)
@@ -118,7 +118,7 @@ All sources are organized by research cluster. For the unified Zae Project bibli
 - **Title**: *Accelerating K-FAC with Thermodynamic Hardware*
 - **Source**: arXiv:2502.08603
 - **Key Contributions**: Reducing K-FAC matrix inversion from $O(B^3)$ to $O(B)$ using thermodynamic relaxation; enables natural gradient descent at first-order computational cost; applicable to training massive neural networks
-- **Relevance to Zae**: Second-order optimization for SNN training — potentially the training method for brain-scale models
+- **Relevance to Zae**: Second-order optimization for SNN training, potentially the training method for brain scale models
 - **Access**: [arXiv:2502.08603](https://arxiv.org/html/2502.08603v1)
 
 ### Maxwell Aifer et al. (2024)
@@ -133,6 +133,6 @@ All sources are organized by research cluster. For the unified Zae Project bibli
 ## Notes on Source Integrity
 
 - arXiv preprints marked with arXiv IDs are not yet peer-reviewed unless stated otherwise
-- Extropic AI publications (blog posts, whitepapers) are company-authored and have not undergone independent peer review — treat performance claims as reported, not independently verified
-- "Authors TBC" entries reflect cases where the primary paper author list was not included in the source material — verify before citing
+- Extropic AI publications (blog posts, whitepapers) are company-authored and have not undergone independent peer review. Treat performance claims as reported, not independently verified
+- "Authors TBC" entries reflect cases where the primary paper author list was not included in the source material. Verify before citing
 - All arXiv IDs are as provided in the primary source document; verify currency before relying on them

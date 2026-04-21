@@ -2,13 +2,13 @@
 
 **Version**: 0.1.0  
 **Status**: Draft  
-**Last Updated**: April 2026
+**Last Updated**: 2026-04-21
 
 ---
 
 ## Overview
 
-Neuromorphic engineering seeks to emulate the brain's massive parallelism and event-driven signaling. Integrating thermodynamic p-bits into neuromorphic architectures produces **Stochastic Spiking Neural Networks (SSNNs)** — systems that replicate the probabilistic computation found in biological neural circuits, while operating at thermodynamic efficiency.
+Neuromorphic engineering emulates the brain's parallelism and event-driven signaling. Integrating thermodynamic p-bits into neuromorphic architectures produces **Stochastic Spiking Neural Networks (SSNNs)**. These systems replicate the probabilistic computation observed in biological neural circuits while operating at thermodynamic efficiency.
 
 ---
 
@@ -29,7 +29,7 @@ The STL exploits two operating regimes of the same device:
 | **Stochastic** | Impact ionization in floating body induces random spiking | Probabilistic spike generation | Input layers |
 | **Deterministic** | Controlled charge accumulation triggers threshold crossing | Reliable LIF firing | Hidden/output layers |
 
-This **dual-mode reconfigurability** simplifies circuit design significantly — the same neuristor can serve different roles across the network architecture.
+This **dual-mode reconfigurability** simplifies circuit design. The same neuristor can serve different roles across the network architecture.
 
 ### 1.3 Noise Resilience
 
@@ -38,7 +38,7 @@ Experimental validation on MNIST classification:
 - Accuracy: **92%** with **30% Gaussian noise** applied to inputs
 - Hardware type: CMOS STL
 
-This demonstrates a key advantage of stochastic architectures over deterministic ones: inherent noise resilience through probabilistic averaging rather than noise suppression.
+Stochastic architectures achieve noise resilience by probabilistic averaging instead of noise suppression.
 
 ---
 
@@ -46,7 +46,7 @@ This demonstrates a key advantage of stochastic architectures over deterministic
 
 ### 2.1 STDP Basics
 
-STDP is a biologically-grounded learning rule where synaptic weights change based on the relative timing of pre- and post-synaptic spikes:
+STDP is a biologically grounded learning rule. Synaptic weights change based on the relative timing of pre- and post-synaptic spikes:
 - Pre-synaptic spike *before* post-synaptic spike → potentiation (weight increases)
 - Pre-synaptic spike *after* post-synaptic spike → depression (weight decreases)
 
@@ -60,11 +60,11 @@ A major architectural advance is the **Spiking STDP Transformer** (arXiv:2511.14
 |---|---|---|
 | Attention mechanism | Softmax(QKᵀ/√d) | Spike-timing correlation via STDP |
 | Operations | Floating-point multiply-accumulate | Addition-only |
-| Memory | Stores large intermediate attention matrices | In-memory computing — no attention matrix |
+| Memory | Stores large intermediate attention matrices | In-memory computing, no attention matrix |
 | Hardware target | GPU/TPU | Neuromorphic / TC hardware |
 | Deployment | Von Neumann | Non-von Neumann |
 
-The elimination of large intermediate attention matrices allows in-memory computing and direct deployment on neuromorphic hardware — critical for orbital applications where memory bandwidth is constrained.
+Eliminating the large intermediate attention matrices enables in-memory computing and direct deployment on neuromorphic hardware. This is critical for orbital applications where memory bandwidth is constrained.
 
 ---
 
@@ -81,9 +81,9 @@ Input → [Stochastic Layer] → [Hidden Layers] → [Output Layer]
 ### 3.2 Synaptic Implementation
 
 For a network with $N$ neurons, synaptic weights $J_{ij}$ are implemented as:
-- **Memristor crossbar arrays** — analog conductance maps to $J_{ij}$
-- **Digital weight registers** — higher precision, higher power
-- **Programmable bilinear couplings** — required for long-range skip connections (see [`scaling-interconnects.md`](scaling-interconnects.md))
+- **Memristor crossbar arrays**. Analog conductance maps to $J_{ij}$.
+- **Digital weight registers**. Higher precision at higher power.
+- **Programmable bilinear couplings**. Required for long-range skip connections (see [`scaling-interconnects.md`](scaling-interconnects.md)).
 
 ### 3.3 Information Encoding
 
@@ -93,7 +93,7 @@ Stochastic SNNs use **rate coding** (spike frequency encodes value) and/or **tem
 
 ---
 
-## 4. Brain-Scale SSNN: Scaling Targets
+## 4. Brain Scale SSNN: Scaling Targets
 
 Targets from neutral-consciousness-engine and arkspace-core specifications:
 
@@ -111,6 +111,6 @@ Thermodynamic computing's energy efficiency is a prerequisite for reaching the 1
 ## References
 
 See [`../../reference/bibliography.md`](../../reference/bibliography.md):
-- Nature Electronics (2025) — STL Neuristor / CMOS-compatible stochastic spiking neuron
-- arXiv:2511.14691 — Spiking STDP Transformer (S²TDPT)
-- Gao et al. (Micromachines 2025) — VCMA-MTJ neuromorphic architecture
+- Nature Electronics (2025). STL Neuristor, CMOS-compatible stochastic spiking neuron.
+- arXiv:2511.14691. Spiking STDP Transformer (S²TDPT).
+- Gao et al. (Micromachines 2025). VCMA-MTJ neuromorphic architecture.

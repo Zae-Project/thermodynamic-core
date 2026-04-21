@@ -2,15 +2,15 @@
 
 **Version**: 0.1.0  
 **Status**: Draft  
-**Last Updated**: April 2026
+**Last Updated**: 2026-04-21
 
 ---
 
 ## Overview
 
-A major historical obstacle in thermodynamic computing was the absence of efficient training methods. Early designs relied on genetic algorithms or exhaustive search to identify coupling parameters — approaches that do not scale to large systems.
+A major historical obstacle in thermodynamic computing was the absence of efficient training methods. Early designs relied on genetic algorithms or exhaustive search to identify coupling parameters. These approaches do not scale to large systems.
 
-The breakthrough came with the demonstration that **gradient descent (GD) is viable for training TC hardware** by expressing training as a problem of maximizing the probability of desired Langevin trajectories (Whitelam, PNAS 2026).
+Whitelam (PNAS 2026) demonstrated that **gradient descent (GD) is viable for training TC hardware**. Training is expressed as maximizing the probability of desired Langevin trajectories.
 
 ---
 
@@ -18,7 +18,7 @@ The breakthrough came with the demonstration that **gradient descent (GD) is via
 
 ### 1.1 Setup
 
-Training proceeds by defining an **idealized target trajectory** (the "teacher") — a sequence of states $\{x^{(0)}, x^{(1)}, \ldots, x^{(K)}\}$ that reproduces the activations of a target digital neural network when given the same input. The thermodynamic computer (the "student") is trained to maximize the probability that its Langevin dynamics will generate that specific trajectory.
+Training proceeds by defining an **idealized target trajectory** (the "teacher"). This is a sequence of states $\{x^{(0)}, x^{(1)}, \ldots, x^{(K)}\}$ that reproduces the activations of a target digital neural network when given the same input. The thermodynamic computer (the "student") is trained to maximize the probability that its Langevin dynamics generate that trajectory.
 
 ### 1.2 Why This Works
 
@@ -73,7 +73,7 @@ From Whitelam (PNAS 2026):
 | MNIST digit recognition | Trained Langevin TC (physical oscillator substrate) | High fidelity |
 | Convergence vs. genetic algorithm | Gradient descent (Onsager-Machlup) | Orders of magnitude fewer trajectories needed |
 
-The gradient-based approach is significantly faster than previous methods, requiring orders of magnitude fewer sampled trajectories to achieve convergence on tasks like MNIST recognition.
+The gradient-based approach requires orders of magnitude fewer sampled trajectories to converge on tasks like MNIST than genetic search.
 
 ---
 
@@ -101,5 +101,5 @@ Phase 2 of thermodynamic-core should implement:
 ## References
 
 See [`../../reference/bibliography.md`](../../reference/bibliography.md):
-- Whitelam (PNAS 2026) — *Training Thermodynamic Computers by Gradient Descent*
-- Whitelam (Molecular Foundry / Nat. Comm. 17:1189, 2026) — Non-linear TC
+- Whitelam (PNAS 2026). *Training Thermodynamic Computers by Gradient Descent*.
+- Whitelam (Molecular Foundry / Nat. Comm. 17:1189, 2026). Non-linear TC.

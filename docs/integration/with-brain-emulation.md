@@ -2,13 +2,13 @@
 
 **Version**: 0.1.0  
 **Status**: Draft  
-**Last Updated**: April 2026
+**Last Updated**: 2026-04-21
 
 ---
 
 ## Overview
 
-This document describes the interface between **thermodynamic-core** (Substrate Layer) and **brain-emulation** (Interface Layer). The relationship is primarily scientific and architectural: brain-emulation models biological neural dynamics with Brian2 (deterministic simulations), while thermodynamic-core defines the stochastic physical substrate. Understanding where these paradigms diverge and where they converge is essential for the Zae project's coherence.
+This document describes the interface between **thermodynamic-core** (Substrate Layer) and **brain-emulation** (Interface Layer). The relationship is primarily scientific and architectural. brain-emulation models biological neural dynamics with Brian2 (deterministic simulations). thermodynamic-core defines the stochastic physical substrate. Mapping where these paradigms diverge and where they converge is essential for the Zae project's coherence.
 
 ---
 
@@ -26,7 +26,7 @@ This document describes the interface between **thermodynamic-core** (Substrate 
 
 ### 1.1 Stochastic vs. Deterministic Neurons
 
-Brian2 LIF neurons are deterministic with optional added Gaussian noise. TC p-bit neurons are *inherently* stochastic — their fluctuations are the computation, not a nuisance. The STL neuristor (see [`../architecture/neuromorphic-integration.md`](../architecture/neuromorphic-integration.md)) bridges this gap: it operates in stochastic mode at the input layer and deterministic mode at hidden/output layers, matching Brian2's architecture in spirit while running on TC hardware.
+Brian2 LIF neurons are deterministic with optional added Gaussian noise. TC p-bit neurons are *inherently* stochastic. Their fluctuations are the computation, not a nuisance. The STL neuristor (see [`../architecture/neuromorphic-integration.md`](../architecture/neuromorphic-integration.md)) bridges this gap. It operates in stochastic mode at the input layer and deterministic mode at hidden and output layers, matching Brian2's architecture in spirit while running on TC hardware.
 
 ---
 
@@ -58,17 +58,17 @@ The brain-emulation network topology can be directly mapped to a TC energy lands
 
 ### 2.3 Translation Pipeline (Future Work)
 
-A brain-emulation → TC parameter translation tool (Phase 2 target):
+A brain-emulation to TC parameter translation tool (Phase 2 target):
 
 ```python
-# Conceptual — Phase 2
+# Conceptual. Phase 2.
 from brain_emulation import BrainTemplate
 from thermodynamic_core import CouplingMatrix
 
 template = BrainTemplate.load("allen_motor_cortex")
 J, b = CouplingMatrix.from_brian2_network(template.network)
-# → J[i,j] = -w[i,j] (excitatory) or +|w[i,j]| (inhibitory)
-# → b[i] = I_bias[i]
+# J[i,j] = -w[i,j] (excitatory) or +|w[i,j]| (inhibitory)
+# b[i] = I_bias[i]
 ```
 
 ---
@@ -83,7 +83,7 @@ brain-emulation provides Three.js 3D spiking activity visualization. TC hardware
 | Boltzmann sample (binary) | Direct spike event per positive $x_i = +1$ |
 | Langevin trajectory (continuous) | Thresholded spike train |
 
-The existing WebSocket real-time streaming interface in brain-emulation can carry TC output samples formatted as synthetic spike trains.
+The existing WebSocket streaming interface in brain-emulation can carry TC output samples formatted as synthetic spike trains.
 
 ---
 
@@ -97,7 +97,7 @@ Both projects should use common benchmarks for cross-validation:
 | Allen Motor Cortex activity | Biologically realistic simulation | TC energy landscape sampling |
 | Split-brain protocol | Hemispheric independence test | TC dual-substrate simulation |
 
-Shared benchmarks allow direct comparison of biological-fidelity (Brian2) vs. thermodynamic-efficiency (TC) implementations.
+Shared benchmarks allow direct comparison of biological fidelity (Brian2) vs. thermodynamic efficiency (TC) implementations.
 
 ---
 

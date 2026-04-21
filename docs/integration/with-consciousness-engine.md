@@ -2,7 +2,7 @@
 
 **Version**: 0.1.0  
 **Status**: Draft  
-**Last Updated**: April 2026
+**Last Updated**: 2026-04-21
 
 ---
 
@@ -130,7 +130,7 @@ The Neural Firewall in neutral-consciousness-engine must extend to the TC substr
 |---|---|
 | TC hardware availability | TSU hardware not yet available; simulation-only for now |
 | SNN-to-TC training pipeline | Onsager-Machlup training at SNN scale not yet demonstrated |
-| Real-time relaxation speed | Physical TSU relaxation latency not yet characterized |
+| Real time relaxation speed | Physical TSU relaxation latency not yet characterized |
 | Neural Firewall on TC hardware | Security integration with stochastic hardware is novel |
 
 ---

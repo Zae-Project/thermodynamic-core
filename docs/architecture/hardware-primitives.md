@@ -2,13 +2,13 @@
 
 **Version**: 0.1.0  
 **Status**: Draft  
-**Last Updated**: April 2026
+**Last Updated**: 2026-04-21
 
 ---
 
 ## Overview
 
-The fundamental building block of a thermodynamic neuromorphic system is the **probabilistic bit** (p-bit). Unlike a deterministic bit fixed at 0 or 1, a p-bit fluctuates between states with a tunable probability distribution. This stochastic behavior allows direct hardware implementation of Bernoulli and categorical sampling — essential for probabilistic graphical models and brain-inspired computation.
+The fundamental building block of a thermodynamic neuromorphic system is the **probabilistic bit** (p-bit). Unlike a deterministic bit fixed at 0 or 1, a p-bit fluctuates between states with a tunable probability distribution. This stochastic behavior implements Bernoulli and categorical sampling directly in hardware, which is required for probabilistic graphical models and brain-inspired computation.
 
 The p-bit's sigmoid voltage-to-probability response:
 
@@ -37,7 +37,7 @@ In **low-barrier nanomagnets (LBNM)**, the thermal stability factor $\Delta < 25
 | **Spin-Orbit Torque (SOT)** | Heavy-metal underlayer generates spin-Hall effect | Faster switching, write/read decoupled | Requires additional layer |
 | **Voltage-Controlled Magnetic Anisotropy (VCMA)** | Electric field modulates the anisotropy barrier | Minimal Ohmic losses, ultra-low power | Early-stage R&D |
 
-VCMA-assisted switching in SHE-MTJ (Spin Hall Effect) devices minimizes Joule heating by modulating the anisotropy barrier with voltage rather than high current, providing a scalable foundation for high-density p-bit arrays (Gao et al., Micromachines 2025).
+VCMA-assisted switching in SHE-MTJ (Spin Hall Effect) devices minimizes Joule heating by modulating the anisotropy barrier with voltage instead of high current. This is a scalable foundation for high density p-bit arrays (Gao et al., Micromachines 2025).
 
 ### 1.3 Experimental Validation
 
@@ -58,7 +58,7 @@ VCMA-assisted switching in SHE-MTJ (Spin Hall Effect) devices minimizes Joule he
 
 ### 2.1 Principle
 
-When a MOSFET operates in the **subthreshold regime** (gate voltage $V_G < V_{th}$), drain current is dominated by diffusion rather than drift. This makes it exquisitely sensitive to thermal fluctuations, creating a natural source of intense thermal noise for random number generation (RNG).
+When a MOSFET operates in the **subthreshold regime** (gate voltage $V_G < V_{th}$), drain current is dominated by diffusion instead of drift. The device becomes sensitive to thermal fluctuations, which produces intense thermal noise usable for random number generation (RNG).
 
 $$I_{DS} \approx I_0 \exp\!\left(\frac{V_{GS} - V_{th}}{n V_T}\right), \quad V_T = k_B T / q$$
 
@@ -95,7 +95,7 @@ Josephson junctions exploit macroscopic quantum tunneling of Cooper pairs across
 
 ### 3.2 Relevance to Zae
 
-Cryogenic operation rules out direct use in LEO orbital payloads with current technology. Josephson junction TC is most relevant for terrestrial large-scale infrastructure. Included here for completeness of the technology landscape.
+Cryogenic operation rules out direct use in LEO orbital payloads with current technology. Josephson junction TC is most relevant for terrestrial large scale infrastructure. Included here for completeness of the technology landscape.
 
 ---
 
@@ -115,6 +115,6 @@ Cryogenic operation rules out direct use in LEO orbital payloads with current te
 ## References
 
 See [`../../reference/bibliography.md`](../../reference/bibliography.md):
-- Gao et al. (Micromachines 2025) — VCMA-MTJ + SqueezeNet CIFAR-10
-- Jelinčič, Verdon, McCourt et al. (arXiv:2510.23972) — TSU probabilistic hardware
+- Gao et al. (Micromachines 2025). VCMA-MTJ + SqueezeNet CIFAR-10.
+- Jelinčič, Verdon, McCourt et al. (arXiv:2510.23972). TSU probabilistic hardware.
 - Extropic AI: "TSU 101" and "Inside X0 and XTR-0" (2025)

@@ -19,9 +19,9 @@
 
 This repository contains the research specifications, theoretical foundations, and architectural documentation for **thermodynamic computing** as the physical substrate layer of the Zae Project.
 
-**Project Status**: Conceptual research phase (TRL 2–3). No hardware exists in this repository. This documents theoretical architecture, identifies technology gaps, and maps the path from current research to brain-scale emulation.
+**Project Status**: conceptual research phase (TRL 2–3). No hardware exists in this repository. The repo documents theoretical architecture, identifies technology gaps, and maps the path from current research to brain scale emulation.
 
-> **Critical Note**: Thermodynamic computing at brain scale is an active and rapidly evolving research frontier. Claims about energy efficiency and scaling represent theoretical limits and experimental projections, not validated production performance. Always consult primary sources in [`reference/bibliography.md`](reference/bibliography.md).
+> **Note**: thermodynamic computing at brain scale is a research frontier. Claims about energy efficiency and scaling represent theoretical limits and experimental projections, not validated production performance. Consult primary sources in [`reference/bibliography.md`](reference/bibliography.md).
 
 ---
 
@@ -32,22 +32,22 @@ Modern AI accelerators operate far above the thermodynamic lower bound of comput
 | Metric | Digital CMOS (Approx.) | Thermodynamic Ideal | Delta |
 |---|---|---|---|
 | Energy per operation | $10^{-12}$ to $10^{-15}$ J | $\sim 10^{-21}$ J | $6$–$9$ orders of magnitude |
-| Signal-to-Noise Ratio | >1000:1 | ~1:1 | Paradigm shift |
-| Computation mechanism | Switching / clocking | Physical relaxation | — |
+| Signal-to-Noise Ratio | >1000:1 | ~1:1 | Inverted operating regime |
+| Computation mechanism | Switching / clocking | Physical relaxation | n/a |
 
-For the Zae Project specifically: the [arkspace-core](https://github.com/Zae-Project/arkspace-core) design targets 100M neurons per satellite node at 50–200W. This is not feasible with von Neumann digital architectures. Thermodynamic computing — where computation is performed by the natural relaxation of a physical stochastic substrate — is the physical paradigm that makes this target conceivable.
+For the Zae Project specifically, the [arkspace-core](https://github.com/Zae-Project/arkspace-core) design targets 100M neurons per satellite node at 50–200W. This target is not reachable with von Neumann digital architectures. Thermodynamic computing performs computation by the natural relaxation of a physical stochastic substrate, which is the physical paradigm that makes the target conceivable.
 
 ---
 
 ## The Substrate: What Thermodynamic Computing Is
 
-Thermodynamic computing treats **thermal noise as a computational resource** rather than a source of error to be suppressed. A thermodynamic computer consists of physical degrees of freedom — voltages, magnetic moments, mechanical oscillators — whose dynamics are governed by the overdamped Langevin equation:
+Thermodynamic computing treats **thermal noise as a computational resource** rather than a source of error to be suppressed. A thermodynamic computer consists of physical degrees of freedom (voltages, magnetic moments, mechanical oscillators) whose dynamics are governed by the overdamped Langevin equation:
 
 $$\dot{x}_i = -\mu \,\partial_i V_{\theta}(x) + \sqrt{2\mu k_B T}\, \eta_i(t)$$
 
 where $V_\theta(x)$ is a programmable energy landscape (the "program"), $k_B T$ is thermal energy, and $\eta_i(t)$ is Gaussian white noise (the "fuel"). In thermal equilibrium the state distribution follows the Boltzmann-Gibbs law, $\rho(x) \propto e^{-\beta V_\theta(x)}$.
 
-Inference, sampling, and optimization — all core to spiking neural network operation — are **formally identical** to the natural dynamics of physical systems relaxing toward equilibrium. The substrate computes by physics, not by transistor switching.
+Inference, sampling, and optimization are core to spiking neural network operation, and they are **formally identical** to the natural dynamics of physical systems relaxing toward equilibrium. The substrate computes by physics, not by transistor switching.
 
 ---
 
@@ -81,7 +81,7 @@ The Substrate layer sits **beneath** the Engine and is **embedded in** the Infra
 
 ## Technology Gaps
 
-The following gaps exist between current demonstrated technology and what is required for brain-scale deployment on orbital hardware:
+The following gaps exist between current demonstrated technology and what is required for brain scale deployment on orbital hardware:
 
 | Gap | Description | Path Forward |
 |---|---|---|
@@ -130,18 +130,18 @@ thermodynamic-core/
 
 | Phase | Scope | Status |
 |---|---|---|
-| **Phase 1** — Docs | Architecture specs, algorithm documentation, bibliography, cross-pillar integration contracts | ✅ In Progress |
-| **Phase 2** — Simulation | THRML (JAX) prototype simulations: p-bit dynamics, Boltzmann machines, Langevin integrators | 🔬 Planned |
-| **Phase 3** — Integration | TC hardware specs for arkspace-core orbital payloads; radiation-hardened substrate design | 📐 Future |
+| **Phase 1**. Docs | Architecture specs, algorithm documentation, bibliography, cross-pillar integration contracts | In progress |
+| **Phase 2**. Simulation | THRML (JAX) prototype simulations: p-bit dynamics, Boltzmann machines, Langevin integrators | Planned |
+| **Phase 3**. Integration | TC hardware specs for arkspace-core orbital payloads, radiation-hardened substrate design | Future |
 
 ---
 
 ## Related Repositories
 
-- [arkspace-core](https://github.com/Zae-Project/arkspace-core) — The orbital infrastructure that this substrate must eventually run on
-- [neutral-consciousness-engine](https://github.com/Zae-Project/neutral-consciousness-engine) — The SNN engine that this substrate underlies
-- [brain-emulation](https://github.com/Zae-Project/brain-emulation) — The BCI interface layer
-- [zae-docs](https://github.com/Zae-Project/zae-docs) — Unified architecture documentation and bibliography
+- [arkspace-core](https://github.com/Zae-Project/arkspace-core), the orbital infrastructure that this substrate must eventually run on.
+- [neutral-consciousness-engine](https://github.com/Zae-Project/neutral-consciousness-engine), the SNN engine that this substrate underlies.
+- [brain-emulation](https://github.com/Zae-Project/brain-emulation), the BCI interface layer.
+- [zae-docs](https://github.com/Zae-Project/zae-docs), unified architecture documentation and bibliography.
 
 ---
 
@@ -155,4 +155,4 @@ See [zae-docs](https://github.com/Zae-Project/zae-docs) for organization-wide co
 
 ## License
 
-MIT — see [LICENSE](LICENSE)
+MIT. See [LICENSE](LICENSE).

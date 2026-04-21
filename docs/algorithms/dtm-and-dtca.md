@@ -2,13 +2,13 @@
 
 **Version**: 0.1.0  
 **Status**: Draft  
-**Last Updated**: April 2026
+**Last Updated**: 2026-04-21
 
 ---
 
 ## Overview
 
-Standard monolithic Energy-Based Models (EBMs) suffer from a fundamental **mixing-expressivity tradeoff**: as the model grows more expressive, its energy landscape becomes rougher, leading to slow relaxation and trapping in local minima. Denoising Thermodynamic Models (DTMs) resolve this by repurposing hardware EBMs as individual denoising steps rather than as a single monolithic model.
+Standard monolithic Energy-Based Models (EBMs) carry a **mixing-expressivity tradeoff**. As the model grows more expressive, its energy landscape becomes rougher, which slows relaxation and traps dynamics in local minima. Denoising Thermodynamic Models (DTMs) resolve this by repurposing hardware EBMs as individual denoising steps instead of a single monolithic model.
 
 ---
 
@@ -16,7 +16,7 @@ Standard monolithic Energy-Based Models (EBMs) suffer from a fundamental **mixin
 
 ### 1.1 The Problem
 
-A monolithic EBM defines a data distribution via a scalar energy function $E_\theta(x)$. For the distribution to be complex and expressive, the energy landscape must have many sharp wells — but this means Langevin dynamics takes a very long time to escape local minima and mix across the whole distribution.
+A monolithic EBM defines a data distribution via a scalar energy function $E_\theta(x)$. An expressive distribution needs many sharp wells in the energy landscape. Sharp wells trap Langevin dynamics in local minima and slow mixing across the whole distribution.
 
 This creates a hard tradeoff:
 - **Low expressivity**: fast mixing, poor approximation
@@ -24,19 +24,19 @@ This creates a hard tradeoff:
 
 ### 1.2 Why This Matters for TC Hardware
 
-In physical TC hardware, the mixing time is a direct physical relaxation time. A slow-mixing model requires the hardware to equilibrate for a longer time before producing a useful sample — increasing latency and energy use.
+In physical TC hardware, the mixing time is a direct physical relaxation time. A slow-mixing model requires the hardware to equilibrate for longer before producing a useful sample, which increases latency and energy use.
 
 ---
 
 ## 2. Denoising Thermodynamic Models (DTMs)
 
-### 2.1 Key Insight
+### 2.1 Construction
 
-DTMs borrow from **diffusion models**: instead of one complex EBM, use a *sequence* of many simple EBMs, each performing a small denoising step. Each hardware EBM:
-1. Takes a partially-noisy input
-2. Relaxes quickly to its shallow, simple energy landscape
-3. Outputs a slightly-less-noisy state
-4. Passes to the next step
+DTMs borrow from **diffusion models**. Instead of one complex EBM, a DTM is a sequence of many simple EBMs, each performing a small denoising step. Each hardware EBM:
+1. Takes a partially noisy input.
+2. Relaxes to its shallow energy landscape.
+3. Outputs a slightly less noisy state.
+4. Passes to the next step.
 
 Composition of many simple steps = complex generative model with fast mixing at each step.
 
@@ -51,7 +51,7 @@ where each $\text{TCStep}$ is one Langevin equilibration on energy $V_{\theta_t}
 The overall model defines a probability path:
 $$p_0(\text{data}) \approx \prod_{t=1}^{T} p_{\theta_t}(x_{t-1} | x_t)$$
 
-This is analogous to DDPM / score-matching diffusion, but each denoising step is executed by physical relaxation rather than a neural network forward pass.
+This is analogous to DDPM and score-matching diffusion, but each denoising step is executed by physical relaxation instead of a neural network forward pass.
 
 ---
 
@@ -106,8 +106,8 @@ The DTCA integrates DTMs into a physical computing system:
 
 The neutral-consciousness-engine includes a **Dream Engine** generative model. A TC-accelerated DTM could serve as the physical substrate for this generative model:
 - Replace GPU-based diffusion with DTCA hardware
-- Dramatically reduce power consumption for generative/predictive-coding inference
-- Enable real-time generative modeling on orbital satellite hardware
+- Reduce power consumption for generative and predictive coding inference (target: $\sim 10^4\times$ vs. GPU, per Extropic AI / DTCA design).
+- Enable real time generative modeling on orbital satellite hardware
 
 ### 4.2 Phase 2 Target
 
@@ -121,5 +121,5 @@ Implement a DTM simulation in JAX:
 ## References
 
 See [`../../reference/bibliography.md`](../../reference/bibliography.md):
-- Jelinčič et al. (arXiv:2510.23972) — TSU hardware / DTCA design
+- Jelinčič et al. (arXiv:2510.23972). TSU hardware and DTCA design.
 - Extropic AI: "Thermodynamic Computing: From Zero to One" (2025)

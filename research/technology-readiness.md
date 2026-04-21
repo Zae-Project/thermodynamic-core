@@ -1,7 +1,7 @@
 # Technology Readiness Assessment: Thermodynamic Computing
 
 **Version**: 0.1.0  
-**Last Updated**: April 2026  
+**Last Updated**: 2026-04-21  
 **Framework**: NASA Technology Readiness Levels (TRL 1–9)
 
 ---
@@ -48,9 +48,9 @@
 
 | Component | TRL | Evidence | Gap to TRL+1 |
 |---|---|---|---|
-| Denoising Thermodynamic Model (DTM) | **3** | Theoretical framework + small-scale simulations | DTCA hardware prototype |
+| Denoising Thermodynamic Model (DTM) | **3** | Theoretical framework plus small scale simulations | DTCA hardware prototype |
 | DTCA (hardware architecture) | **2–3** | Described in arXiv:2510.23972; XTR-0 prototype | Z1 production chip |
-| THRML library (JAX) | **4–5** | Available software; portfolio selection demo | Full production-scale model support |
+| THRML library (JAX) | **4–5** | Available software; portfolio selection demo | Full production scale model support |
 | HBSC skip couplings | **3** | Theoretical + simulation (arXiv:2604.14332) | Physical analog bus implementation |
 | Hybrid digital conditioning | **3** | Theoretical + simulation | Hardware integration with TSU |
 | Thermodynamic K-FAC | **2–3** | Theoretical (arXiv:2502.08603) | Hardware demonstration |
@@ -74,9 +74,9 @@
 |---|---|---|
 | **TC Theory** | 4 | Lab-to-production scaling |
 | **TC Hardware (terrestrial)** | 4–5 | Production chip availability (Z1 TSU) |
-| **TC Software (THRML)** | 4–5 | Production-scale model support |
-| **TC for Brain-Scale (terrestrial)** | 2–3 | HBSC + conditioning + SNN integration |
-| **TC for Orbital (LEO)** | 1–2 | Radiation hardening — critical gap |
+| **TC Software (THRML)** | 4–5 | Production scale model support |
+| **TC for Brain Scale (terrestrial)** | 2–3 | HBSC, conditioning, SNN integration |
+| **TC for Orbital (LEO)** | 1–2 | Radiation hardening. Critical gap |
 
 ---
 
@@ -84,10 +84,10 @@
 
 | Risk | Likelihood | Impact | Mitigation |
 |---|---|---|---|
-| Z1 TSU delayed or underperforms | Medium | High | Continue GPU simulation in Phase 2; hardware-agnostic algorithm development |
+| Z1 TSU delayed or underperforms | Medium | High | Continue GPU simulation in Phase 2; hardware agnostic algorithm development |
 | VCMA-MTJ fails to reach standard fab | Medium | Medium | Fallback to subthreshold CMOS; MTJ as long-term target |
 | Radiation hardening intractable for LEO | Low–Medium | High | Shielding + periodic recalibration via uplink; TID tolerance study |
-| Langevin relaxation too slow for <50ms latency | Unknown | High | Needs experimental characterization; hardware-specific measurement |
+| Langevin relaxation too slow for <50ms latency | Unknown | High | Needs experimental characterization; hardware specific measurement |
 | HBSC fidelity degrades at brain scale | Low | High | Rank-k can be increased; validation at scale needed |
 
 ---

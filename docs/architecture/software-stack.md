@@ -2,13 +2,13 @@
 
 **Version**: 0.1.0  
 **Status**: Draft  
-**Last Updated**: April 2026
+**Last Updated**: 2026-04-21
 
 ---
 
 ## Overview
 
-Deploying brain-scale neural networks on thermodynamic hardware requires a complete software-to-silicon toolchain: compilers that translate high-level neural network graphs into thermodynamic primitives, runtimes that schedule sampling operations, and simulation libraries that allow development before hardware exists.
+Deploying brain scale neural networks on thermodynamic hardware requires a software-to-silicon toolchain. Compilers translate neural network graphs into thermodynamic primitives, runtimes schedule sampling operations, and simulation libraries support development before hardware exists.
 
 ---
 
@@ -76,10 +76,10 @@ Gibbs sampling requires updating variable subsets. Effective partitioning:
 
 ### 2.3 Hardware-Aware Memory Mapping
 
-Minimizing energy from communication (not just computation):
-- Coupling weights $J_{ij}$ stored adjacent to the sampling cells they connect
-- Bias vectors $b_i$ co-located with their neurons
-- MLIR/LLVM-based infrastructure for performance-centric ISA emission
+Minimizing communication energy (alongside computation):
+- Coupling weights $J_{ij}$ stored adjacent to the sampling cells they connect.
+- Bias vectors $b_i$ co-located with their neurons.
+- MLIR/LLVM-based infrastructure for performance-centric ISA emission.
 
 ---
 
@@ -152,6 +152,6 @@ Phase 2 of thermodynamic-core will add:
 ## References
 
 See [`../../reference/bibliography.md`](../../reference/bibliography.md):
-- THRML Documentation — [docs.thrml.ai](https://docs.thrml.ai/en/latest/architecture/)
-- Jelinčič et al. (arXiv:2510.23972) — TSU probabilistic hardware architecture
-- Extropic AI: "Inside X0 and XTR-0" (2025)
+- THRML Documentation. [docs.thrml.ai](https://docs.thrml.ai/en/latest/architecture/).
+- Jelinčič et al. (arXiv:2510.23972). TSU probabilistic hardware architecture.
+- Extropic AI. "Inside X0 and XTR-0" (2025).

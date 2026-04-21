@@ -2,13 +2,13 @@
 
 **Version**: 0.1.0  
 **Status**: Draft  
-**Last Updated**: April 2026
+**Last Updated**: 2026-04-21
 
 ---
 
 ## Overview
 
-Beyond generative modeling, thermodynamic hardware can accelerate the **linear algebra primitives** that bottleneck deep learning: solving linear systems, inverting matrices, and performing matrix exponentiation. The Langevin substrate can solve these problems with a **linear speedup** $O(N)$ relative to matrix dimensions — versus $O(N^3)$ for classical algorithms.
+Beyond generative modeling, thermodynamic hardware can accelerate the **linear algebra primitives** that bottleneck deep learning: solving linear systems, inverting matrices, and performing matrix exponentiation. The Langevin substrate can solve these problems with a **linear speedup** $O(N)$ in matrix dimension, versus $O(N^3)$ for classical algorithms.
 
 This capability is especially relevant for **second-order optimization** methods like Natural Gradient Descent (NGD), which require computing or approximating the inverse of the Fisher information matrix.
 
@@ -22,7 +22,7 @@ A thermodynamic system with a quadratic energy function:
 
 $$V(x) = \frac{1}{2} x^\top A x - b^\top x$$
 
-achieves its equilibrium minimum at $x^* = A^{-1} b$ — which is exactly the solution to the linear system $Ax = b$.
+achieves its equilibrium minimum at $x^* = A^{-1} b$, which is the solution to the linear system $Ax = b$.
 
 The system *solves the linear system by relaxing to equilibrium*. This gives:
 
@@ -48,7 +48,7 @@ Standard SGD updates parameters in the direction of the Euclidean gradient. **Na
 
 $$\theta \leftarrow \theta - \alpha\, F(\theta)^{-1}\, \nabla_\theta \mathcal{L}$$
 
-NGD converges faster and is more invariant to parameter reparameterization — but computing $F^{-1}$ for large networks is prohibitively expensive ($O(P^3)$ for $P$ parameters).
+NGD converges faster and is more invariant to parameter reparameterization. Computing $F^{-1}$ for large networks is prohibitive, $O(P^3)$ for $P$ parameters.
 
 ### 2.2 K-FAC as an Approximation
 
@@ -56,7 +56,7 @@ NGD converges faster and is more invariant to parameter reparameterization — b
 
 $$F_\ell \approx A_\ell \otimes G_\ell$$
 
-This reduces the inversion cost from $O(P^3)$ to $O(P \cdot \text{block\_size}^3)$ — but the block inversions are still expensive for large blocks.
+This reduces the inversion cost from $O(P^3)$ to $O(P \cdot \text{block\_size}^3)$. Block inversions remain expensive for large blocks.
 
 ### 2.3 Thermodynamic K-FAC
 
@@ -77,7 +77,7 @@ This makes the inversion cost equivalent to that of a first-order method (SGD), 
 | K-FAC (GPU) | $O(P \cdot B^3)$ | Fast | GPU (expensive) |
 | Thermodynamic K-FAC | $O(P \cdot B)$ | Fast | TSU + small GPU |
 
-For training massive neural networks — including the brain-scale SNN in neutral-consciousness-engine — Thermodynamic K-FAC offers a path to second-order optimization efficiency with first-order computational cost.
+For training large neural networks, including the brain scale SNN in neutral-consciousness-engine, Thermodynamic K-FAC offers a path to second-order optimization efficiency at first-order computational cost.
 
 ---
 
@@ -105,5 +105,5 @@ Implement in JAX:
 ## References
 
 See [`../../reference/bibliography.md`](../../reference/bibliography.md):
-- Aifer et al. (2024) — *Thermodynamic Linear Algebra* — npj Unconventional Computing 1:13
-- arXiv:2502.08603 — *Accelerating K-FAC with Thermodynamic Hardware*
+- Aifer et al. (2024). *Thermodynamic Linear Algebra*. *npj Unconventional Computing* 1:13.
+- arXiv:2502.08603. *Accelerating K-FAC with Thermodynamic Hardware*.

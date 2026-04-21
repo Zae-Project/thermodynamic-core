@@ -2,7 +2,7 @@
 
 **Version**: 0.1.0  
 **Status**: Draft  
-**Last Updated**: April 2026
+**Last Updated**: 2026-04-21
 
 ---
 
@@ -16,9 +16,9 @@ Production-scale thermodynamic inference requires a small **digital conditioning
 
 ### 1.1 Eigenvalue Concentration
 
-In a large-scale analog Langevin substrate with fixed coupling constants $J_{ij}$, the coupling signal between input and output can be overwhelmed by thermal noise. The ratio of "signal eigenvalue" to "noise eigenvalue" diminishes as model size grows.
+In a large analog Langevin substrate with fixed coupling constants $J_{ij}$, the coupling signal between input and output can be overwhelmed by thermal noise. The ratio of signal eigenvalue to noise eigenvalue diminishes as model size grows.
 
-For production-scale diffusion models, this signal deficit reaches **up to 2,600×** — meaning the substrate's equilibrium distribution is nearly independent of the input. The hardware cannot condition on data.
+For production-scale diffusion models, this signal deficit reaches **up to 2,600×**. The substrate's equilibrium distribution then becomes nearly independent of the input, and the hardware cannot condition on data.
 
 ### 1.2 Why This Happens
 
@@ -89,7 +89,7 @@ The dynamic bias vectors $b_{\text{enc}}$ and $b_{\text{dec}}$ are computed by t
 | Parameter count | $\sim 2 \cdot d \cdot D$ (small) |
 | Hardware | Runs on host digital processor |
 
-**Total digital interface parameters**: $\sim 3 \cdot d \cdot D$. For $D = 10^6$ and $d = 128$: ~384K parameters vs. the analog core's ~$10^9$ — approximately 0.04% of total.
+**Total digital interface parameters**: $\sim 3 \cdot d \cdot D$. For $D = 10^6$ and $d = 128$, this is ~384K parameters against the analog core's ~$10^9$, approximately 0.04% of total.
 
 ### 3.3 Bias Injection Interface
 
@@ -130,4 +130,4 @@ The small size of the digital interface means this backpropagation is cheap.
 ## References
 
 See [`../../reference/bibliography.md`](../../reference/bibliography.md):
-- Whitelam & Casert (Nature Communications 2026 / arXiv:2604.14332) — HBSC + conditioning
+- Whitelam & Casert (Nature Communications 2026, arXiv:2604.14332). HBSC and conditioning.
