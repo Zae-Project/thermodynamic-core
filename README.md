@@ -64,6 +64,11 @@ The Zae Project has four interconnected pillars:
 
 The Substrate layer sits **beneath** the Engine and is **embedded in** the Infrastructure's payload design. It defines the physical computing paradigm on which the Engine ultimately runs.
 
+Per-pillar contracts live in `docs/integration/`:
+- [`with-arkspace.md`](docs/integration/with-arkspace.md). Orbital payload envelope (power, radiation, thermal).
+- [`with-consciousness-engine.md`](docs/integration/with-consciousness-engine.md). SNN → TC parameter transfer via Onsager-Machlup.
+- [`with-brain-emulation.md`](docs/integration/with-brain-emulation.md). Atlas → TC energy-landscape mapping, shared benchmarks.
+
 ---
 
 ## Key Technologies
