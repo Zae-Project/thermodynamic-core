@@ -135,9 +135,9 @@ thermodynamic-core/
 
 | Phase | Scope | Status |
 |---|---|---|
-| **Phase 1**. Docs | Architecture specs, algorithm documentation, bibliography, cross-pillar integration contracts | In progress |
-| **Phase 2**. Simulation | THRML (JAX) prototype simulations: p-bit dynamics, Boltzmann machines, Langevin integrators | Planned |
-| **Phase 3**. Integration | TC hardware specs for arkspace-core orbital payloads, radiation-hardened substrate design | Future |
+| **Phase 1**. Docs | Architecture specs, algorithm documentation, bibliography, cross-pillar integration contracts | Complete (April 2026) |
+| **Phase 2**. Simulation | NumPy and JAX prototype simulations: Langevin integrator, p-bit sampler, thermodynamic linear algebra, Boltzmann machine, planned: Onsager-Machlup training, DTM/DTCA, K-FAC, HBSC | In progress (Step 2.1 of 7 landed 2026-04-22, 14/14 tests passing) |
+| **Phase 3**. Integration | TC hardware specs for arkspace-core orbital payloads, radiation-hardened substrate design, uplink θ-update protocol, Neural Firewall extension | Future |
 
 ---
 
