@@ -1,7 +1,7 @@
 # Thermodynamic Computing. Bibliography
 
-**Version**: 1.0  
-**Last Updated**: 2026-04-21  
+**Version**: 1.1  
+**Last Updated**: 2026-05-30  
 **Purpose**: Primary sources for thermodynamic-core research
 
 All sources are organized by research cluster. For the unified Zae Project bibliography (including consciousness, BCI, neuromorphic, WBE, and satellite domains), see [zae-docs/reference/bibliography.md](https://github.com/Zae-Project/zae-docs/blob/main/reference/bibliography.md).
@@ -56,6 +56,12 @@ All sources are organized by research cluster. For the unified Zae Project bibli
 - **Type**: Software documentation
 - **Key Contributions**: JAX-based library for building and sampling probabilistic graphical models on TC hardware; block Gibbs sampling; software-to-hardware compiler architecture
 - **Access**: [docs.thrml.ai/en/latest/architecture/](https://docs.thrml.ai/en/latest/architecture/)
+
+### Extropic AI. Hardware and software milestones (2025-2026)
+- **THRML**: open-source JAX library, v0.1.3 released 29 Oct 2025. Doubles as a TSU simulator for block Gibbs on sparse, heterogeneous graphs
+- **XTR-0**: development platform (CPU + FPGA, two TSU sockets), shipped Q3 2025
+- **Z1**: first production-scale TSU (hundreds of thousands of sampling cells per chip, standard CMOS), early access 2026
+- **Relevance to Zae**: hardware timeline for the Substrate pillar. THRML is directly usable as a reference simulator for the `sims/` work.
 
 ---
 
@@ -114,12 +120,13 @@ All sources are organized by research cluster. For the unified Zae Project bibli
 
 ## 5. Advanced Mathematical Operations
 
-### (Authors TBC) (2025)
-- **Title**: *Accelerating K-FAC with Thermodynamic Hardware*
-- **Source**: arXiv:2502.08603
+### Kaelan Donatella et al. (2025)
+- **Title**: *Scalable Thermodynamic Second-order Optimization*
+- **Source**: arXiv:2502.08603 (verified 2026-05-30; supersedes the earlier "Accelerating K-FAC with Thermodynamic Hardware" placeholder title)
+- **Authors**: Kaelan Donatella, Samuel Duffield, Denis Melanson, Maxwell Aifer, Phoebe Klett, Rajath Salegame, Zach Belateche, Gavin Crooks, Antonio J. Martinez, Patrick J. Coles (Normal Computing)
 - **Key Contributions**: Reducing K-FAC matrix inversion from $O(B^3)$ to $O(B)$ using thermodynamic relaxation; enables natural gradient descent at first-order computational cost; applicable to training massive neural networks
 - **Relevance to Zae**: Second-order optimization for SNN training, potentially the training method for brain scale models
-- **Access**: [arXiv:2502.08603](https://arxiv.org/html/2502.08603v1)
+- **Access**: [arXiv:2502.08603](https://arxiv.org/abs/2502.08603)
 
 ### Maxwell Aifer et al. (2024)
 - **Title**: *Thermodynamic Linear Algebra*
@@ -127,6 +134,19 @@ All sources are organized by research cluster. For the unified Zae Project bibli
 - **Key Contributions**: Formal proof and demonstration of $O(N)$ thermodynamic speedup for linear system solving, matrix inversion, and matrix exponentiation; foundation for thermodynamic second-order methods
 - **Relevance to Zae**: Mathematical foundation for all TC-based linear algebra; prerequisite for Thermodynamic K-FAC
 - **Access**: [npj Unconventional Computing 1:13](https://www.nature.com/articles/s44335-024-00013-3)
+
+---
+
+## 6. Normal Computing: Carnot Architecture / CN101
+
+### Normal Computing (2025). CN101 tape-out
+- **Title**: *Normal Computing Announces Tape-Out of World's First Thermodynamic Computing Chip*
+- **Type**: Company announcement (August 2025)
+- **Key Contributions**: First silicon demonstration of a thermodynamic-computing chip. 4 compute tiles, 64 state variables each, reconfigurable network-on-chip, 256-dimensional problems at 32-bit state. "Carnot" architecture targeting stochastic sampling (lattice random walk) and linear algebra, with a ~1000x energy-efficiency goal on targeted workloads. 2026 roadmap adds a more compact interaction matrix and many more tiles.
+- **Relevance to Zae**: Second hardware track for the Substrate pillar beside Extropic. CN101 is early silicon evidence for thermodynamic sampling and matrix operations; keep claims at TRL 2-3.
+- **Access**: [normalcomputing.com/blog](https://www.normalcomputing.com/blog/normal-computing-announces-tape-out-of-worlds-first-thermodynamic-computing-chip)
+
+> The Donatella et al. (2025) "Scalable Thermodynamic Second-order Optimization" paper in §5 is the Normal Computing training/algorithm reference that pairs with this hardware.
 
 ---
 
