@@ -105,7 +105,16 @@ Both projects should use common benchmarks for cross-validation:
 | Allen Motor Cortex activity | Biologically realistic simulation | TC energy landscape sampling (TC side landed: `sims/brain_translator/benchmark.py`) |
 | Split-brain protocol | Hemispheric independence test | TC dual-substrate simulation |
 
-TC-side status (2026-05-30): the Allen Motor Cortex benchmark runs and produces biological rate ordering (sparse excitatory < faster inhibitory) with per-layer variation. The Brian2 side remains the brain-emulation task to complete the cross-simulator comparison.
+Status (2026-05-30): both sides now run. TC side `sims/brain_translator/benchmark.py`; Brian2 side `brain-emulation/benchmarks/allen_m1_brian2.py`. First cross-simulator result on the Allen M1 template:
+
+| Metric | Brian2 LIF | TC energy landscape |
+|---|---|---|
+| excitatory mean | ~11.5 Hz | ~12.0 Hz |
+| inhibitory mean | ~25.4 Hz | ~21.4 Hz |
+| exc/inh ordering | exc < inh | exc < inh |
+| per-layer excitatory | L5B ~= L6 > L2/3 | L6 > L2/3 > L5B |
+
+They agree on global excitatory/inhibitory balance and population rate scale, and disagree on laminar structure (notably L5B: highest under spiking dynamics, lowest under the symmetric equilibrium model). This is consistent with the inhibition-fidelity gap below: the equilibrium Ising model captures global balance but not inhibition's dynamic laminar role.
 
 Shared benchmarks allow direct comparison of biological fidelity (Brian2) vs. thermodynamic efficiency (TC) implementations.
 
