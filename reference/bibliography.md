@@ -83,13 +83,15 @@ All sources are organized by research cluster. For the unified Zae Project bibli
 - **Relevance to Zae**: primary reference for HBSC and hybrid conditioning. Both are core to brain scale TC design.
 - **Access**: [arXiv:2604.14332](https://arxiv.org/abs/2604.14332)
 
-### Stephen Whitelam (2026)
-- **Title**: *Thermodynamic Computing Advances with Design and Training* (Berkeley Lab research announcement)
-- **Status**: peer-reviewed journal venue and DOI not verified. The earlier "Nature Communications 17, 1189 / s41467-026-XXXXX" entry was a placeholder and has been removed pending a confirmed DOI.
+### Stephen Whitelam & Corneel Casert (2026)
+- **Title**: *Nonlinear thermodynamic computing out of equilibrium*
+- **Journal**: Nature Communications 17, 1189 (2026)
+- **DOI**: [10.1038/s41467-025-67958-0](https://www.nature.com/articles/s41467-025-67958-0)
+- **Source**: arXiv:2412.17183 (verified 2026-05-30; the earlier "Thermodynamic Computing Advances with Design and Training / s41467-026-XXXXX" entry used a Berkeley Lab news headline as the title and a placeholder DOI, both now corrected)
 - **Institution**: Molecular Foundry / Lawrence Berkeley National Laboratory
-- **Key Contributions**: Non-linear thermodynamic computers mimicking neural networks; focuses on expressivity of non-quadratic energy landscapes
+- **Key Contributions**: Non-linear thermodynamic computers as universal function approximators powered by thermal fluctuations; quartic-potential circuits whose activity is a nonlinear function of their input; parameters tuned to compute at specified observation times in or out of equilibrium
 - **Relevance to Zae**: Extends TC beyond quadratic/Ising models to full neural network expressivity
-- **Access**: [Molecular Foundry announcement](https://foundry.lbl.gov/2026/03/06/thermodynamic-computing-advances-with-design-and-training-2/)
+- **Access**: [Nature Communications](https://www.nature.com/articles/s41467-025-67958-0) | [arXiv:2412.17183](https://arxiv.org/abs/2412.17183) | [Molecular Foundry announcement](https://foundry.lbl.gov/2026/03/06/thermodynamic-computing-advances-with-design-and-training-2/)
 
 ---
 
