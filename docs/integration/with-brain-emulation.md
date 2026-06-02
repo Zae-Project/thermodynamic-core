@@ -56,20 +56,28 @@ The brain-emulation network topology can be directly mapped to a TC energy lands
 | 80/20 exc/inh ratio | Ratio of negative to positive $J_{ij}$ couplings |
 | Clustered connectivity | Local vs. long-range couplings (HBSC for long-range) |
 
-### 2.3 Translation Pipeline (Future Work)
+### 2.3 Translation Pipeline (implemented, TC-side reference)
 
-A brain-emulation to TC parameter translation tool (Phase 2 target):
+A first runnable translator landed 2026-05-30 at
+[`sims/brain_translator/`](../../sims/brain_translator/) (commit on origin/main).
+It loads an atlas template, builds the Ising landscape `(J, b)` with the sign
+convention below, samples it with single-site Gibbs, and maps samples back to
+firing rates.
 
 ```python
-# Conceptual. Phase 2.
-from brain_emulation import BrainTemplate
-from thermodynamic_core import CouplingMatrix
+from sims.brain_translator import BrainNetwork, IsingSampler, samples_to_rates, load_template
 
-template = BrainTemplate.load("allen_motor_cortex")
-J, b = CouplingMatrix.from_brian2_network(template.network)
-# J[i,j] = -w[i,j] (excitatory) or +|w[i,j]| (inhibitory)
-# b[i] = I_bias[i]
+net = BrainNetwork(load_template("sims/brain_translator/data/allen_motor_cortex.json"))
+# net.J[i,j] = -w (excitatory) or +w (inhibitory), symmetrized to (M+M^T)/2
+# b from net.bias(b0=...)  (the atlas template carries no explicit I_bias)
+samples = IsingSampler(net.J, net.bias(b0=-0.3), beta=0.7).chain(400)
+rates = samples_to_rates(samples, r_max=50.0)   # r_i = (s_i+1)/2 * r_max
 ```
+
+Two approximations were forced and are documented in the module README:
+directed connectivity is symmetrized for an equilibrium landscape, and the
+literal `w -> J` mapping is rescaled (default `normalize="field"`) because the
+raw mapping is a saturating ferromagnet with no balanced operating point.
 
 ---
 
@@ -94,8 +102,10 @@ Both projects should use common benchmarks for cross-validation:
 | Benchmark | brain-emulation | thermodynamic-core |
 |---|---|---|
 | MNIST digit recognition | Brian2 SNN classifier | TC Langevin / DTCA classifier |
-| Allen Motor Cortex activity | Biologically realistic simulation | TC energy landscape sampling |
+| Allen Motor Cortex activity | Biologically realistic simulation | TC energy landscape sampling (TC side landed: `sims/brain_translator/benchmark.py`) |
 | Split-brain protocol | Hemispheric independence test | TC dual-substrate simulation |
+
+TC-side status (2026-05-30): the Allen Motor Cortex benchmark runs and produces biological rate ordering (sparse excitatory < faster inhibitory) with per-layer variation. The Brian2 side remains the brain-emulation task to complete the cross-simulator comparison.
 
 Shared benchmarks allow direct comparison of biological fidelity (Brian2) vs. thermodynamic efficiency (TC) implementations.
 
@@ -105,8 +115,9 @@ Shared benchmarks allow direct comparison of biological fidelity (Brian2) vs. th
 
 | Gap | Description |
 |---|---|
-| Atlas → TC mapping | No tool exists yet to convert Brian2 network to TC coupling matrix |
-| Spike train ↔ TC output | Conversion protocol not yet specified beyond conceptual |
+| Atlas → TC mapping | Translator landed (`sims/brain_translator/`). Remaining: it needs coupling normalization to avoid a saturating ferromagnet, and uses a symmetric equilibrium landscape rather than directed dynamics |
+| Inhibition fidelity | Measured this session: after symmetric normalization the minority inhibitory units carry little coupling mass, so the equilibrium model under-represents inhibition. Native inhibition barely shifts excitatory rate; suppression appears only at 6 to 10x inhibitory gain |
+| Spike train ↔ TC output | Rate map `r_i=(s_i+1)/2*r_max` implemented; temporal spike structure still conceptual |
 | Temporal resolution | TC Langevin timestep vs. Brian2 dt must be reconciled |
 | Biological fidelity in TC | TC Boltzmann machines are simpler than conductance-based neuron models |
 
