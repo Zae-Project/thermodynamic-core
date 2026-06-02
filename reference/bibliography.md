@@ -77,19 +77,19 @@ All sources are organized by research cluster. For the unified Zae Project bibli
 
 ### Stephen Whitelam & Corneel Casert (2026)
 - **Title**: *Thermodynamic Diffusion Inference with Minimal Digital Conditioning*
-- **Journal**: Nature Communications
+- **Status**: arXiv preprint (2026). No journal-reference listed on arXiv as of 2026-05-30. Earlier "Nature Communications" attribution was unverified and has been removed.
 - **Source**: arXiv:2604.14332
 - **Key Contributions**: Hierarchical Bilinear Skip Coupling (HBSC), rank-$k$ SVD-based non-local interconnects; minimal digital conditioning interface (<0.1% of model parameters); $10^7\times$ theoretical energy saving over GPU inference; rank-16 decoder cosine similarity 0.9906 vs. digital oracle.
 - **Relevance to Zae**: primary reference for HBSC and hybrid conditioning. Both are core to brain scale TC design.
 - **Access**: [arXiv:2604.14332](https://arxiv.org/abs/2604.14332)
 
 ### Stephen Whitelam (2026)
-- **Title**: *Thermodynamic Computing Advances with Design and Training*
-- **Journal**: Nature Communications 17, 1189
+- **Title**: *Thermodynamic Computing Advances with Design and Training* (Berkeley Lab research announcement)
+- **Status**: peer-reviewed journal venue and DOI not verified. The earlier "Nature Communications 17, 1189 / s41467-026-XXXXX" entry was a placeholder and has been removed pending a confirmed DOI.
 - **Institution**: Molecular Foundry / Lawrence Berkeley National Laboratory
 - **Key Contributions**: Non-linear thermodynamic computers mimicking neural networks; focuses on expressivity of non-quadratic energy landscapes
 - **Relevance to Zae**: Extends TC beyond quadratic/Ising models to full neural network expressivity
-- **Access**: [Molecular Foundry announcement](https://foundry.lbl.gov/2026/03/06/thermodynamic-computing-advances-with-design-and-training-2/) | [Nature Communications 17:1189](https://www.nature.com/articles/s41467-026-XXXXX)
+- **Access**: [Molecular Foundry announcement](https://foundry.lbl.gov/2026/03/06/thermodynamic-computing-advances-with-design-and-training-2/)
 
 ---
 
